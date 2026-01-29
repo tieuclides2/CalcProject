@@ -1,0 +1,106 @@
+unit FormPrincipalCalc;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,
+  Web.HTTPApp, Vcl.OleCtrls, SHDocVw, View.WebCharts, Charts.Types;
+
+type
+  TForm1 = class(TForm)
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    WebBrowser1: TWebBrowser;
+    WebCharts1: TWebCharts;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    function Somar(aNumber1, aNumber2: Integer): Integer;
+    function FormatarCPFCNPJ(aValue: string): string;
+    { Public declarations }
+    procedure SomarDoisNumeros;
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  SomarDoisNumeros;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  ShowMessage('iaeeeee');
+end;
+
+function TForm1.FormatarCPFCNPJ(aValue: string): string;
+var
+  I: Integer;
+begin
+  for I := 1 to Length(aValue) do
+    if aValue[I] in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'] then
+
+      Result := Result + aValue[I];
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  // 1) Inicializa o navegador
+  WebBrowser1.Navigate('about:blank');
+
+  // 2) Liga o WebCharts ao WebBrowser
+  WebCharts1.WebBrowser := WebBrowser1;
+
+  // 3) Monta o layout
+  WebCharts1.Container(fluid)
+    .BackgroundColor('#262735')
+    .FontColor('#FFF')
+    .NewProject
+    .Jumpline
+    .Rows
+    ._Div
+    .ColSpan(12)
+    .Add(
+    '<div style="background-color:#323241; color:#ffffff; text-align:center; height: 90px; padding-top:20px">' +
+    '<h2>Dashboard Resumo Financeiro</h2>' +
+    '</div>'
+    )
+    .&End
+    .&End;
+end;
+
+function TForm1.Somar(aNumber1, aNumber2: Integer): Integer;
+var
+  n1, n2, resultado: Integer;
+begin
+  n1 := aNumber1;
+  n2 := aNumber2;
+  Result := n1 + n2;
+end;
+
+procedure TForm1.SomarDoisNumeros;
+var
+  n1, n2, resultado: Integer;
+begin
+  n1 := StrToInt(Edit1.Text);
+  n2 := StrToInt(Edit2.Text);
+
+  Edit3.Text := IntToStr(Somar(n1, n2));
+end;
+
+end.
