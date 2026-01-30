@@ -74,7 +74,7 @@ begin
   Result := '';
   for I := 1 to Length(aValue) do
     if aValue[I] in ['0' .. '9'] then
-      Result := Result + aValue[I] + 'AAAA';
+      Result := Result + aValue[I];
 end;
 
 function TForm1.Somar(aNumber1, aNumber2: Integer): Integer;
@@ -92,4 +92,5 @@ begin
 end;
 
 end.
+
 
