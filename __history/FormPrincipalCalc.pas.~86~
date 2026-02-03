@@ -6,8 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,
   View.WebCharts, Charts.Types, Vcl.OleCtrls, SHDocVw, ACBrBase,
-  ACBrValidador, frDPIAwareControls, frxDPIAwareBaseControls, frxClass,
-  frxPreview;
+  ACBrValidador;
 
 type
   TForm1 = class(TForm)
@@ -23,8 +22,6 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    frxPreview1: TfrxPreview;
-    Label4: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
