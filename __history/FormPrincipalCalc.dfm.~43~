@@ -111,7 +111,7 @@ object Form1: TForm1
   object frxPreview1: TfrxPreview
     Left = 744
     Top = 27
-    Width = 284
+    Width = 276
     Height = 164
     OutlineVisible = True
     OutlineWidth = 185
@@ -123,9 +123,9 @@ object Form1: TForm1
   end
   object BCEditor1: TBCEditor
     Left = 465
-    Top = 27
-    Width = 273
-    Height = 164
+    Top = 29
+    Width = 264
+    Height = 162
     ActiveLine.Indicator.Visible = False
     CodeFolding.Hint.Font.Charset = DEFAULT_CHARSET
     CodeFolding.Hint.Font.Color = clWindowText

@@ -7,7 +7,7 @@ uses
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,
   View.WebCharts, Charts.Types, Vcl.OleCtrls, SHDocVw, ACBrBase,
   ACBrValidador, frDPIAwareControls, frxDPIAwareBaseControls, frxClass,
-  frxPreview, BCEditor.Highlighter, BCEditor.Editor;
+  frxPreview;
 
 type
   TForm1 = class(TForm)
@@ -25,8 +25,8 @@ type
     Label3: TLabel;
     frxPreview1: TfrxPreview;
     Label4: TLabel;
-    Label5: TLabel;
     BCEditor1: TBCEditor;
+    Label5: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
